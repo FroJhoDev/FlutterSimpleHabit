@@ -104,10 +104,11 @@ class AuthenticationLoginBodyComponent extends StatelessWidget {
         ),
         const SizedBox(height: 15.0),
         FilledButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/home');
-            },
-            child: const Text('Entrar Agora')),
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
+          child: const Text('Entrar Agora'),
+        ),
       ],
     );
   }

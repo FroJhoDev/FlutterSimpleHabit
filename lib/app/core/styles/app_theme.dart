@@ -20,20 +20,14 @@ class AppTheme {
 
   static const Color background = Color(0xFFFFFFFF);
 
-  // static ButtonStyle elevatedButtonStyle({
-  //   Color color = Colors.white,
-  //   double padding = 24.0,
-  // }) {
-  //   return ElevatedButton.styleFrom(
-  //     foregroundColor: color,
-  //     elevation: 0,
-  //     shape: const RoundedRectangleBorder(
-  //       borderRadius: BorderRadius.all(
-  //         Radius.circular(10.0),
-  //       ),
-  //     ),
-  //   );
-  // }
+  static ButtonStyle filledButtonStyle() {
+    return FilledButton.styleFrom(
+      backgroundColor: Colors.blue,
+      side: BorderSide(color: Colors.blue.shade200, width: 3.0),
+      foregroundColor: Colors.white,
+      padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15.0),
+    );
+  }
 
   // static ButtonStyle outlinedButtonStyle() {
   //   return OutlinedButton.styleFrom(
@@ -49,7 +43,8 @@ class AppTheme {
 
   static InputDecorationTheme inputDecorationStyle() {
     return InputDecorationTheme(
-      contentPadding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15.0),
       filled: true,
       fillColor: Colors.white,
       hintStyle:
@@ -68,5 +63,6 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
     fontFamily: 'Raleway-Regular',
     inputDecorationTheme: inputDecorationStyle(),
+    filledButtonTheme: FilledButtonThemeData(style: filledButtonStyle()),
   );
 }
