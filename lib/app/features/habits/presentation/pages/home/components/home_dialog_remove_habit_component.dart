@@ -2,6 +2,7 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/assets/app_animations.dart';
+import '../../../../../../core/styles/app_typography.dart';
 
 class HomeDialogRemoveHabitComponent extends StatelessWidget {
   const HomeDialogRemoveHabitComponent({super.key});
@@ -15,10 +16,7 @@ class HomeDialogRemoveHabitComponent extends StatelessWidget {
           Lottie.asset(AppAnimations.removeAnimated, animate: false),
           Text(
             'Tem certeza que deseja remover esse hábito da sua lista?',
-            style: TextStyle(
-                fontSize: 14.0,
-                color: Colors.grey.shade700,
-                fontWeight: FontWeight.bold),
+            style: AppTypography.description(),
             textAlign: TextAlign.center,
           ),
         ],
@@ -27,18 +25,17 @@ class HomeDialogRemoveHabitComponent extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {},
-          child: const Text(
+          child: Text(
             'Deletar',
             style:
-                TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
+                AppTypography.textButton().copyWith(color: Colors.redAccent, fontWeight: FontWeight.bold),
           ),
         ),
         TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Cancelar',
-              style: TextStyle(
-                  color: Colors.blue.shade200, fontWeight: FontWeight.bold),
+              style: AppTypography.textButton().copyWith(color: Colors.blue.shade200, fontWeight: FontWeight.bold),
             )),
       ],
     );

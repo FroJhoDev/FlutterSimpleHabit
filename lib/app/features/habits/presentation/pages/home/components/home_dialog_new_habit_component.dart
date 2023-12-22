@@ -45,14 +45,13 @@ class HomeDialogNewHabitComponent extends StatelessWidget {
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Cancelar',
-              style: AppTypography.textButton()
-                  .copyWith(color: Colors.blue.shade200),
+              style: AppTypography.textButton().copyWith(color: Colors.blue.shade200, fontWeight: FontWeight.bold),
             )),
         TextButton(
           onPressed: () {},
           child: Text(
             'Salvar',
-            style: AppTypography.textButton().copyWith(color: Colors.orange),
+            style: AppTypography.textButton().copyWith(color: Colors.orange, fontWeight: FontWeight.bold),
           ),
         ),
       ],
