@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simple_habit/app/core/extensions/size_extension.dart';
 
+import '../../../../../core/styles/app_typography.dart';
+
 import 'authentication_animated_menu_indicator_component.dart';
 
 class AuthenticationMenuComponent extends StatelessWidget {
@@ -12,7 +14,8 @@ class AuthenticationMenuComponent extends StatelessWidget {
 
   void changePage({required int pageIndex}) {
     _optionSelected.value = pageIndex;
-    pageController.animateToPage(pageIndex, duration: const Duration(milliseconds: 600), curve: Curves.ease);
+    pageController.animateToPage(pageIndex,
+        duration: const Duration(milliseconds: 600), curve: Curves.ease);
   }
 
   @override
@@ -28,7 +31,9 @@ class AuthenticationMenuComponent extends StatelessWidget {
             children: [
               ValueListenableBuilder(
                 valueListenable: _optionSelected,
-                builder: (_, value, __) => AuthenticationAnimatedMenuIndicatorComponent(optionSelected: _optionSelected.value),
+                builder: (_, value, __) =>
+                    AuthenticationAnimatedMenuIndicatorComponent(
+                        optionSelected: _optionSelected.value),
               ),
               Align(
                 alignment: Alignment.center,
@@ -37,23 +42,23 @@ class AuthenticationMenuComponent extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () => changePage(pageIndex: 0),
-                      child: const Text(
+                      child: Text(
                         'Entrar',
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        style: AppTypography.textButton(),
                       ),
                     ),
                     TextButton(
                       onPressed: () => changePage(pageIndex: 1),
-                      child: const Text(
+                      child: Text(
                         'Cadastro',
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        style: AppTypography.textButton(),
                       ),
                     ),
                     TextButton(
                       onPressed: () => changePage(pageIndex: 2),
-                      child: const Text(
+                      child: Text(
                         'Senha',
-                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                        style: AppTypography.textButton(),
                       ),
                     ),
                   ],

@@ -2,6 +2,7 @@ import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_habit/app/core/extensions/size_extension.dart';
 
+import '../../../../../core/styles/app_typography.dart';
 import '../../../../../core/assets/app_animations.dart';
 import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
 
@@ -31,14 +32,10 @@ class AuthenticationLoginBodyComponent extends StatelessWidget {
               text: TextSpan(children: [
                 TextSpan(
                     text: 'Bem-Vindo ao ',
-                    style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description()),
                 TextSpan(
                     text: 'SimpleHabit',
-                    style: TextStyle(
-                        color: Colors.blue.shade900,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description().copyWith(color: Colors.blue.shade900)),
               ]),
             ),
           ],
@@ -47,11 +44,7 @@ class AuthenticationLoginBodyComponent extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Text(
             'Entrar',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey.shade700,
-            ),
+            style: AppTypography.title(),
           ),
         ),
         const TextFieldCustomWidget(

@@ -4,6 +4,7 @@ import 'package:simple_habit/app/core/extensions/size_extension.dart';
 
 import '../../../../../core/assets/app_animations.dart';
 import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
+import '../../../../../core/styles/app_typography.dart';
 
 class AuthenticationForgotPasswordBodyComponent extends StatelessWidget {
 
@@ -28,14 +29,11 @@ class AuthenticationForgotPasswordBodyComponent extends StatelessWidget {
               text: TextSpan(children: [
                 TextSpan(
                     text: 'Esqueceu sua senha? ',
-                    style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description()),
                 TextSpan(
                     text: 'Recupere-a',
-                    style: TextStyle(
-                        color: Colors.blue.shade900,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description()
+                        .copyWith(color: Colors.blue.shade900)),
               ]),
             ),
           ],
@@ -44,10 +42,7 @@ class AuthenticationForgotPasswordBodyComponent extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Text(
             'Recuperar Senha',
-            style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.shade700),
+            style: AppTypography.title(),
           ),
         ),
         const TextFieldCustomWidget(

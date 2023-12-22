@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simple_habit/app/core/extensions/size_extension.dart';
 
+import '../../../../../core/styles/app_typography.dart';
+
 class AuthenticationSocialOptionsComponent extends StatelessWidget {
   const AuthenticationSocialOptionsComponent({super.key});
 
@@ -11,16 +13,16 @@ class AuthenticationSocialOptionsComponent extends StatelessWidget {
       bottom: 0.0,
       child: SizedBox(
         height: context.percentHeight(0.1),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20.0),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Row(
             children: [
               Text(
                 'Entre Também Com',
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
+                style: AppTypography.textButton(),
               ),
-              SizedBox(width: 20.0),
-              Icon(
+              const SizedBox(width: 20.0),
+              const Icon(
                 Icons.facebook_rounded,
                 size: 32.0,
                 color: Colors.white,

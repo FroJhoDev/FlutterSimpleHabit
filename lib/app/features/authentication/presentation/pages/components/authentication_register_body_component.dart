@@ -4,6 +4,7 @@ import 'package:simple_habit/app/core/extensions/size_extension.dart';
 
 import '../../../../../core/assets/app_animations.dart';
 import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
+import '../../../../../core/styles/app_typography.dart';
 
 class AuthenticationRegisterBodyComponent extends StatelessWidget {
   const AuthenticationRegisterBodyComponent({super.key});
@@ -17,7 +18,8 @@ class AuthenticationRegisterBodyComponent extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Lottie.asset(AppAnimations.registerAnimated, width: context.percentWidth(0.60)),
+            Lottie.asset(AppAnimations.registerAnimated,
+                width: context.percentWidth(0.60)),
           ],
         ),
         Row(
@@ -27,14 +29,11 @@ class AuthenticationRegisterBodyComponent extends StatelessWidget {
               text: TextSpan(children: [
                 TextSpan(
                     text: 'Crie sua conta ',
-                    style: TextStyle(
-                        color: Colors.grey.shade700,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description()),
                 TextSpan(
                     text: 'SimpleHabit',
-                    style: TextStyle(
-                        color: Colors.blue.shade900,
-                        fontWeight: FontWeight.bold)),
+                    style: AppTypography.description()
+                        .copyWith(color: Colors.blue.shade900)),
               ]),
             ),
           ],
@@ -43,10 +42,7 @@ class AuthenticationRegisterBodyComponent extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 30.0),
           child: Text(
             'Cadastre-se',
-            style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey.shade700),
+            style: AppTypography.title(),
           ),
         ),
         const TextFieldCustomWidget(

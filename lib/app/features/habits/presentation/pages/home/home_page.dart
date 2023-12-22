@@ -5,11 +5,13 @@ import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import '../../../../../core/assets/app_animations.dart';
 import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
 import '../../../../../core/shared/widgets/gradient_background_widget.dart';
+import '../../../../../core/styles/app_typography.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
 
-  final TextEditingController _timeTextFieldController = TextEditingController();
+  final TextEditingController _timeTextFieldController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -104,55 +106,75 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'Habitos do Dia',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: Colors.grey.shade700,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                            Text('Habitos do Dia', style: AppTypography.subTitle()),
                             IconButton(
                               onPressed: () {
-
-                                showDialog(context: context, builder: (BuildContext context) {
-
-                                  return AlertDialog(                                    
-                                    title: Text('Adicionar Novo Hábito', textAlign: TextAlign.center, style: TextStyle(color: Colors.blue.shade700, fontWeight: FontWeight.bold),),
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        const TextFieldCustomWidget(
-                                          hintText: 'Título',
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        title: Text(
+                                          'Adicionar Novo Hábito',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.blue.shade700,
+                                              fontWeight: FontWeight.bold),
                                         ),
-                                        const TextFieldCustomWidget(
-                                          hintText: 'Descrição',
+                                        content: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            const TextFieldCustomWidget(
+                                              hintText: 'Título',
+                                            ),
+                                            const TextFieldCustomWidget(
+                                              hintText: 'Descrição',
+                                            ),
+                                            TextFieldCustomWidget(
+                                              hintText: 'Horário',
+                                              readOnly: true,
+                                              textEditingController:
+                                                  _timeTextFieldController,
+                                              onTap: () async {
+                                                final timePicked =
+                                                    await showTimePicker(
+                                                        context: context,
+                                                        initialTime:
+                                                            TimeOfDay.now());
+
+                                                if (timePicked != null) {
+                                                  _timeTextFieldController
+                                                          .text =
+                                                      "${timePicked.hour}:${timePicked.minute}";
+                                                }
+                                              },
+                                            ),
+                                          ],
                                         ),
-                                        TextFieldCustomWidget(
-                                          hintText: 'Horário',
-                                          readOnly: true,
-                                          textEditingController: _timeTextFieldController,
-                                          onTap: () async {
-
-                                            final timePicked = await showTimePicker(context: context, initialTime: TimeOfDay.now());
-
-                                            if (timePicked != null) {                                                
-                                              _timeTextFieldController.text = "${timePicked.hour}:${timePicked.minute}";
-                                            }
-
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    actionsAlignment: MainAxisAlignment.spaceBetween,
-                                    actions: [
-                                      TextButton(onPressed: () => Navigator.pop(context), child: Text('Cancelar', style: TextStyle(color: Colors.blue.shade200, fontWeight: FontWeight.bold),)),
-                                      TextButton(onPressed: (){}, child: const Text('Salvar', style: TextStyle(color: Colors.orange, fontWeight: FontWeight.bold),),),
-                                    ],
-                                  );
-
-                                });
-
+                                        actionsAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                              child: Text(
+                                                'Cancelar',
+                                                style: TextStyle(
+                                                    color: Colors.blue.shade200,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              )),
+                                          TextButton(
+                                            onPressed: () {},
+                                            child: const Text(
+                                              'Salvar',
+                                              style: TextStyle(
+                                                  color: Colors.orange,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    });
                               },
                               icon: Icon(
                                 Icons.add_circle_outline,
@@ -218,7 +240,7 @@ class HomePage extends StatelessWidget {
                                                   color: Colors.grey.shade400,
                                                   fontWeight: FontWeight.bold,
                                                 ),
-                                              ),                                              
+                                              ),
                                             ],
                                           ),
                                         ],
@@ -226,24 +248,62 @@ class HomePage extends StatelessWidget {
                                     ),
                                     IconButton(
                                       onPressed: () {
-
-                                        showDialog(context: context, builder: (context) {
-                                          return AlertDialog(
-                                            content: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Lottie.asset(AppAnimations.removeAnimated, animate: false),
-                                                Text('Tem certeza que deseja remover esse hábito da sua lista?', style: TextStyle(fontSize: 14.0, color: Colors.grey.shade700, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
-                                              ],
-                                            ),
-                                            actionsAlignment: MainAxisAlignment.spaceBetween,
-                                            actions: [
-                                              TextButton(onPressed: (){}, child: const Text('Deletar', style: TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),),),
-                                              TextButton(onPressed: () => Navigator.pop(context), child: Text('Cancelar', style: TextStyle(color: Colors.blue.shade200, fontWeight: FontWeight.bold),)),
-                                            ],
-                                          );
-                                        });
-
+                                        showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              return AlertDialog(
+                                                content: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Lottie.asset(
+                                                        AppAnimations
+                                                            .removeAnimated,
+                                                        animate: false),
+                                                    Text(
+                                                      'Tem certeza que deseja remover esse hábito da sua lista?',
+                                                      style: TextStyle(
+                                                          fontSize: 14.0,
+                                                          color: Colors
+                                                              .grey.shade700,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                    ),
+                                                  ],
+                                                ),
+                                                actionsAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () {},
+                                                    child: const Text(
+                                                      'Deletar',
+                                                      style: TextStyle(
+                                                          color:
+                                                              Colors.redAccent,
+                                                          fontWeight:
+                                                              FontWeight.bold),
+                                                    ),
+                                                  ),
+                                                  TextButton(
+                                                      onPressed: () =>
+                                                          Navigator.pop(
+                                                              context),
+                                                      child: Text(
+                                                        'Cancelar',
+                                                        style: TextStyle(
+                                                            color: Colors
+                                                                .blue.shade200,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .bold),
+                                                      )),
+                                                ],
+                                              );
+                                            });
                                       },
                                       icon: Icon(
                                         Icons.delete_outline,
