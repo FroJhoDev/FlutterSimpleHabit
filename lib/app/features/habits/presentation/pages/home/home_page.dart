@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 
 import '../../../../../core/assets/app_animations.dart';
+import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -131,63 +132,25 @@ class HomePage extends StatelessWidget {
                                     content: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Container(
-                                          margin: const EdgeInsets.only(bottom: 15.0),
-                                          decoration: BoxDecoration(boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.grey.shade400,
-                                                blurRadius: 3.0,
-                                                offset: const Offset(0.0, 4.0)),
-                                          ], borderRadius: BorderRadius.circular(50.0)),
-                                          child: TextField(
-                                            style: TextStyle(
-                                                color: Colors.grey.shade500, fontWeight: FontWeight.w700),
-                                            decoration: const InputDecoration(
-                                              hintText: 'Título',
-                                            ),
-                                          ),
+                                        const TextFieldCustomWidget(
+                                          hintText: 'Título',
                                         ),
-                                        Container(
-                                          margin: const EdgeInsets.only(bottom: 15.0),
-                                          decoration: BoxDecoration(boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.grey.shade400,
-                                                blurRadius: 3.0,
-                                                offset: const Offset(0.0, 4.0)),
-                                          ], borderRadius: BorderRadius.circular(50.0)),
-                                          child: TextField(
-                                            style: TextStyle(
-                                                color: Colors.grey.shade500, fontWeight: FontWeight.w700),
-                                            decoration: const InputDecoration(
-                                              hintText: 'Descrição',
-                                            ),
-                                          ),
+                                        const TextFieldCustomWidget(
+                                          hintText: 'Descrição',
                                         ),
-                                        Container(
-                                          margin: const EdgeInsets.only(bottom: 15.0),
-                                          decoration: BoxDecoration(boxShadow: [
-                                            BoxShadow(
-                                                color: Colors.grey.shade400,
-                                                blurRadius: 3.0,
-                                                offset: const Offset(0.0, 4.0)),
-                                          ], borderRadius: BorderRadius.circular(50.0)),
-                                          child: TextField(
-                                            readOnly: true,
-                                            controller: _timeTextFieldController,
-                                            style: TextStyle(color: Colors.grey.shade500, fontWeight: FontWeight.w700),
-                                            decoration: const InputDecoration(
-                                              hintText: 'Horário',
-                                            ),
-                                            onTap: () async {
+                                        TextFieldCustomWidget(
+                                          hintText: 'Horário',
+                                          readOnly: true,
+                                          textEditingController: _timeTextFieldController,
+                                          onTap: () async {
 
-                                              final timePicked = await showTimePicker(context: context, initialTime: TimeOfDay.now());
+                                            final timePicked = await showTimePicker(context: context, initialTime: TimeOfDay.now());
 
-                                              if (timePicked != null) {                                                
-                                                _timeTextFieldController.text = "${timePicked.hour}:${timePicked.minute}";
-                                              }
+                                            if (timePicked != null) {                                                
+                                              _timeTextFieldController.text = "${timePicked.hour}:${timePicked.minute}";
+                                            }
 
-                                            },
-                                          ),
+                                          },
                                         ),
                                       ],
                                     ),
