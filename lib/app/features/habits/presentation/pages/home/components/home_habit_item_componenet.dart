@@ -12,7 +12,7 @@ class HomeHabitItemComponenet extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 15.0),
       decoration: BoxDecoration(
           color: Colors.white,
-          border: Border.all(color: Colors.grey.shade200),
+          border: Border.all(color: Colors.grey.shade200, width: 2.0),
           borderRadius: BorderRadius.circular(15.0),
           boxShadow: [
             BoxShadow(
