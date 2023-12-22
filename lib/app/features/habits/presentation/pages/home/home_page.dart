@@ -4,6 +4,7 @@ import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 
 import '../../../../../core/assets/app_animations.dart';
 import '../../../../../core/shared/widgets/text_field_custom_widget.dart';
+import '../../../../../core/shared/widgets/gradient_background_widget.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -15,18 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Colors.blue.shade800,
-                  Colors.blue.shade500,
-                ],
-              ),
-            ),
-          ),
+          const GradientBackgroundWidget(),
           Column(
             children: [
               SafeArea(
