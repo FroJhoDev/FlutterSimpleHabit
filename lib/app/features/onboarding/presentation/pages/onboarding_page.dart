@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 import '../../../../core/assets/app_animations.dart';
 import '../../../../core/shared/widgets/gradient_background_widget.dart';
@@ -11,6 +12,7 @@ class OnboardingPage extends StatelessWidget {
 
   final PageController _pageController = PageController();
   final ValueNotifier<int> _pageIndex = ValueNotifier(0);
+  final GetStorage _getStorage = GetStorage();
 
   final List listItems = [
     {
@@ -53,11 +55,13 @@ class OnboardingPage extends StatelessWidget {
                 _pageController.animateToPage(0, duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
                 _pageIndex.value = 0;
               } else {
+                _getStorage.write('skipOnboard', true);
                 Navigator.pushReplacementNamed(context, '/login');
               }
             },
             onPressedNext: () {
               if (_pageIndex.value == listItems.length - 1) {
+                _getStorage.write('skipOnboard', true);
                 Navigator.pushReplacementNamed(context, '/login');                
               } else {
                 _pageController.nextPage(duration: const Duration(milliseconds: 300), curve: Curves.easeIn);
