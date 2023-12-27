@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'core/styles/app_theme.dart';
 
 import 'features/habits/presentation/pages/home/home_page.dart';
+import 'features/onboarding/presentation/pages/onboarding_page.dart';
 import 'features/authentication/presentation/pages/authentication_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,8 +17,9 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.theme,
       initialRoute: '/',
       routes: {
-        '/': (context) => AuthenticationPage(),
-        '/home': (context) => HomePage(),
+        '/': (context) => OnboardingPage(),
+        '/login': (context) => AuthenticationPage(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
