@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       initialRoute: '/onboarding',
-      getPages: appRouters(),
+      getPages: AppRouters.pages,
     );
   }
 }
