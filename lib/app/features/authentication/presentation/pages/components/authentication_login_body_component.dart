@@ -1,3 +1,4 @@
+import 'package:get/route_manager.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_habit/app/core/extensions/size_extension.dart';
@@ -73,7 +74,7 @@ class AuthenticationLoginBodyComponent extends StatelessWidget {
         const SizedBox(height: 15.0),
         FilledButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/home');
+            Get.toNamed('/home');
           },
           child: const Text('Entrar Agora'),
         ),
