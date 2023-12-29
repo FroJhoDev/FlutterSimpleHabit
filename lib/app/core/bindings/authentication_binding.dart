@@ -6,7 +6,7 @@ import '../../features/authentication/data/repositories/register_repository_impl
 import '../../features/authentication/presentation/controller/register_controller.dart';
 import '../../features/authentication/domain/usecases/register/register_usecase_impl.dart';
 
-class AuthenticationBindings implements Bindings{
+class AuthenticationBinding implements Bindings{
   @override
   void dependencies() {
     Get.put<RegisterUsecase>(RegisterUsecaseImpl(registerRepository: RegisterRepositoryImpl(firebaseAuth: Get.find<FirebaseAuth>())));
