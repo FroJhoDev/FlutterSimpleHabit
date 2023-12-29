@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "248684779000",
+    "project_id": "simplehabit-6e525",
+    "storage_bucket": "simplehabit-6e525.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248684779000:android:78d14f2a2b696dcfd3f20d",
+        "android_client_info": {
+          "package_name": "com.example.simple_habit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHqyB4VIq5YDN4oFmqZcxVP3BGy0RDZnM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
