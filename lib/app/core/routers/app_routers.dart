@@ -4,6 +4,8 @@ import '../../features/habits/presentation/pages/home/home_page.dart';
 import '../../features/onboarding/presentation/pages/onboarding_page.dart';
 import '../../features/authentication/presentation/pages/authentication_page.dart';
 
+import '../bindings/authentication_bindings.dart';
+
 class AppRouters {
   static final pages = [
     GetPage(
@@ -13,6 +15,7 @@ class AppRouters {
     GetPage(
       name: '/auth',
       page: () => AuthenticationPage(),
+      binding: AuthenticationBindings()
     ),
     GetPage(
       name: '/home',
