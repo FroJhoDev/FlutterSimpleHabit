@@ -6,17 +6,18 @@ import '../../features/authentication/presentation/pages/authentication_page.dar
 
 import '../bindings/authentication_binding.dart';
 
+import '../middlewares/onboarding_view_middleware.dart';
+
 class AppRouters {
   static final pages = [
     GetPage(
-      name: '/onboarding',
-      page: () => OnboardingPage(),
-    ),
+        name: '/onboarding',
+        page: () => OnboardingPage(),
+        middlewares: [OnboardingViewMiddleware()]),
     GetPage(
-      name: '/auth',
-      page: () => AuthenticationPage(),
-      binding: AuthenticationBinding()
-    ),
+        name: '/auth',
+        page: () => AuthenticationPage(),
+        binding: AuthenticationBinding()),
     GetPage(
       name: '/home',
       page: () => const HomePage(),
