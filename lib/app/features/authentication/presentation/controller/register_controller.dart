@@ -17,7 +17,7 @@ class RegisterController extends GetxController {
     required String password,
   }) async {
     try {
-      _registerUsecase.createUserWithEmailAndPassword(
+      await _registerUsecase.createUserWithEmailAndPassword(
         userName: userName,
         email: email,
         password: password,
